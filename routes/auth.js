@@ -37,7 +37,7 @@ router.post('/register', function(req, res, next) {
 
   Users.findOne({user_id: user_id, user_password: user_password}, function(err, users){
     if(err) return res.status(500).send("DB err");
-    if(users)  return res.status(200).json({success: "200", user_name: users.user_name, token: users.token});
+    if(users)  return res.status(200).json({success: "200", user_id: users.user_id, user_password: users.user_password, user_name: users.user_name, user_age: users.user_age, token: users.token});
     else return res.status(404).send("id or password not found");
   });
 })
