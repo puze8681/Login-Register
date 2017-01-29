@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
+
+    public final static String LOG_TAG = "LOG_TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,16 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response){
+
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             String success = jsonResponse.getString("success");
-                            if(success == "200"){
+                            Log.d(LOG_TAG,success);
+                            if(success.equals("200")){
                                 String user_id = jsonResponse.getString("user_id");
+                                Log.d(LOG_TAG,user_id);
                                 String user_password = jsonResponse.getString("user_password");
+                                Log.d(LOG_TAG,user_password);
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 mainIntent.putExtra("user_id", user_id);
                                 mainIntent.putExtra("user_password", user_password);
