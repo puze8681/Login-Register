@@ -23,7 +23,7 @@ router.post('/register', function(req, res, next) {
 
   new_user.save(function(err, result){
     if(err) return res.status(500).send("DB err");
-    return res.status(200).json({success: users.success});
+    return res.status(200).json({success: true});
   });
 })
 
@@ -37,7 +37,7 @@ router.post('/register', function(req, res, next) {
 
   Users.findOne({user_id: user_id, user_password: user_password}, function(err, users){
     if(err) return res.status(500).send("DB err");
-    if(users)  return res.status(200).json({success: users.success, user_name: users.user_name, token: users.token});
+    if(users)  return res.status(200).json({success: true, user_name: users.user_name, token: users.token});
     else return res.status(404).send("id or password not found");
   });
 })
@@ -47,7 +47,7 @@ router.post('/register', function(req, res, next) {
 
   Users.findOne({token: token}, function(err, users){
     if(err) return res.status(500).send("DB err");
-    if(users)  return res.status(200).json({success: users.success, user_name: users.user_name, token: users.token});
+    if(users)  return res.status(200).json({success: true, user_name: users.user_name, token: users.token});
     else return res.status(404).send("token not found");
   });
 })
