@@ -75,8 +75,8 @@ public class UserListAdapter extends BaseAdapter {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-                            if(success){
+                            String success = jsonResponse.getString("success");
+                            if(success == "200"){
                                 userList.remove(i);
                                 for(int i = 0; i < saveList.size(); i++){
                                     if(saveList.get(i).getUserID().equals(user_id.getText().toString())){

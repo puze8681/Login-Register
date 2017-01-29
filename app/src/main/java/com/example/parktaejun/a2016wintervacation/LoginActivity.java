@@ -41,9 +41,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(String response){
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            if(success){
+                            String success = jsonResponse.getString("success");
+                            if(success == "200"){
                                 String user_id = jsonResponse.getString("user_id");
                                 String user_password = jsonResponse.getString("user_password");
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
