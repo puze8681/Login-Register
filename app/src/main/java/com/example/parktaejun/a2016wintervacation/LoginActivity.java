@@ -49,12 +49,14 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(LOG_TAG,success);
                             if(success.equals("200")){
                                 String user_id = jsonResponse.getString("user_id");
-                                Log.d(LOG_TAG,user_id);
                                 String user_password = jsonResponse.getString("user_password");
-                                Log.d(LOG_TAG,user_password);
+                                String user_name = jsonResponse.getString("user_name");
+                                String user_age = jsonResponse.getString("user_age");
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 mainIntent.putExtra("user_id", user_id);
                                 mainIntent.putExtra("user_password", user_password);
+                                mainIntent.putExtra("user_name", user_name);
+                                mainIntent.putExtra("user_age", user_age);
                                 LoginActivity.this.startActivity(mainIntent);
                             }
 

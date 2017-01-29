@@ -22,20 +22,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView idText = (EditText)findViewById(R.id.idText);
-        TextView passwordText = (EditText)findViewById(R.id.passwordText);
+        TextView idText = (TextView) findViewById(R.id.user_id);
+        TextView passwordText = (TextView) findViewById(R.id.user_password);
+        TextView nameText = (TextView) findViewById(R.id.user_name);
+        TextView ageText = (TextView) findViewById(R.id.user_age);
         TextView welcomeMessage = (TextView)findViewById(R.id.welcomeMessage);
 
         Button managementButton = (Button)findViewById(R.id.managementButton);
 
 
         Intent intent = getIntent();
-        String user_id = intent.getStringExtra("user_id");
-        String user_password = intent.getStringExtra("user_password");
-        String message = "환영합니다. " + user_id + "님";
+        String user_id = "ID : " + intent.getStringExtra("user_id");
+        String user_password = "PW : " + intent.getStringExtra("user_password");
+        String user_name = "NAME : " + intent.getStringExtra("user_name");
+        String user_age = "AGE : " + intent.getStringExtra("user_age");
+        String message = "환영합니다. " + intent.getStringExtra("user_name") + "님";
 
         idText.setText(user_id);
         passwordText.setText(user_password);
+        nameText.setText(user_name);
+        ageText.setText(user_age);
         welcomeMessage.setText(message);
 
         if(!user_id.equals("admin"))
