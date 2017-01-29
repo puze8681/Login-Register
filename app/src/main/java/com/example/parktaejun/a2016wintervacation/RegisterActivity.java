@@ -32,10 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userID = idText.getText().toString();
-                String userPassword = passwordText.getText().toString();
-                String userName = nameText.getText().toString();
-                int userAge = Integer.parseInt(ageText.getText().toString());
+                String user_id = idText.getText().toString();
+                String user_password = passwordText.getText().toString();
+                String user_name = nameText.getText().toString();
+                int user_age = Integer.parseInt(ageText.getText().toString());
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userAge, responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(user_id, user_password, user_name, user_age, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
             }

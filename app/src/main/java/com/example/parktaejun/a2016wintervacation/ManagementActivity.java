@@ -38,16 +38,16 @@ public class ManagementActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
             JSONArray jsonArray = jsonObject.getJSONArray("response");
             int count = 0;
-            String userID, userPassword, userName, userAge;
+            String user_id, user_password, user_name, user_age;
             while(count < jsonArray.length())
             {
                 JSONObject object = jsonArray.getJSONObject(count);
-                userID = object.getString("userID");
-                userPassword = object.getString("userPassword");
-                userName = object.getString("userName");
-                userAge = object.getString("userAge");
-                User user = new User(userID, userPassword, userName, userAge);
-                if(!userID.equals("admin")) {
+                user_id = object.getString("user_id");
+                user_password = object.getString("user_password");
+                user_name = object.getString("user_name");
+                user_age = object.getString("user_age");
+                User user = new User(user_id, user_password, user_name, user_age);
+                if(!user_id.equals("admin")) {
                     userList.add(user);
                     saveList.add(user);
                 }

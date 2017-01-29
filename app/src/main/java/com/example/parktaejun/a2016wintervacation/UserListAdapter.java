@@ -54,15 +54,15 @@ public class UserListAdapter extends BaseAdapter {
     @Override
     public View getView(final int i, View convertView, ViewGroup parent) {
         View v = View.inflate(context, R.layout.user, null);
-        final TextView userID = (TextView) v.findViewById(R.id.userID);
-        TextView userPassword = (TextView) v.findViewById(R.id.userPassword);
-        TextView userName = (TextView) v.findViewById(R.id.userName);
-        TextView userAge = (TextView) v.findViewById(R.id.userAge);
+        final TextView user_id = (TextView) v.findViewById(R.id.user_id);
+        TextView user_password = (TextView) v.findViewById(R.id.user_password);
+        TextView user_name = (TextView) v.findViewById(R.id.user_name);
+        TextView user_age = (TextView) v.findViewById(R.id.user_age);
 
-        userID.setText(userList.get(i).getUserID());
-        userPassword.setText(userList.get(i).getUserPassword());
-        userName.setText(userList.get(i).getUserName());
-        userAge.setText(userList.get(i).getUserAge());
+        user_id.setText(userList.get(i).getUserID());
+        user_password.setText(userList.get(i).getUserPassword());
+        user_name.setText(userList.get(i).getUserName());
+        user_age.setText(userList.get(i).getUserAge());
 
         v.setTag(userList.get(i).getUserID());
 
@@ -79,7 +79,7 @@ public class UserListAdapter extends BaseAdapter {
                             if(success){
                                 userList.remove(i);
                                 for(int i = 0; i < saveList.size(); i++){
-                                    if(saveList.get(i).getUserID().equals(userID.getText().toString())){
+                                    if(saveList.get(i).getUserID().equals(user_id.getText().toString())){
                                         saveList.remove(i);
                                         break;
                                     }
@@ -92,7 +92,7 @@ public class UserListAdapter extends BaseAdapter {
                         }
                     }
                 };
-                DeleteRequest deleteRequest = new DeleteRequest(userID.getText().toString(), responseListener);
+                DeleteRequest deleteRequest = new DeleteRequest(user_id.getText().toString(), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(parentActivity);
                 queue.add(deleteRequest);
             }
