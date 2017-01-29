@@ -13,6 +13,7 @@ var UserSchema = mongoose.Schema({
   user_name: {type: String},
   user_age: {type: Number},
   token: {type: String},
+  success: {type: Boolean, default: true}
 });
 
 Users = mongoose.model("users", UserSchema);
