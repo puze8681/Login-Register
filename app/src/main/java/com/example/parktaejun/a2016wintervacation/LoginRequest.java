@@ -15,11 +15,11 @@ public class LoginRequest extends StringRequest{
     final static private String URL = "http://iwin247.net:8681/auth/login";
     private Map<String, String> parameters;
 
-    public LoginRequest(String userID, String userPassword, Response.Listener<String> listener) {
+    public LoginRequest(String user_id, String user_password, Response.Listener<String> listener) {
         super(Request.Method.POST, URL, listener, null);
         parameters = new HashMap<>();
-        parameters.put("userID", userID);
-        parameters.put("userPassword", userPassword);
+        parameters.put("user_id", user_id);
+        parameters.put("user_password", user_password);
     }
 
     @Override

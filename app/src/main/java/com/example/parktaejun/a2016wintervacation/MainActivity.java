@@ -30,15 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String userID = intent.getStringExtra("userID");
-        String userPassword = intent.getStringExtra("userPassword");
-        String message = "환영합니다. " + userID + "님";
+        String user_id = intent.getStringExtra("user_id");
+        String user_password = intent.getStringExtra("user_password");
+        String message = "환영합니다. " + user_id + "님";
 
-        idText.setText(userID);
-        passwordText.setText(userPassword);
+        idText.setText(user_id);
+        passwordText.setText(user_password);
         welcomeMessage.setText(message);
 
-        if(!userID.equals("admin"))
+        if(!user_id.equals("admin"))
         {
             managementButton.setVisibility(View.GONE);
         }

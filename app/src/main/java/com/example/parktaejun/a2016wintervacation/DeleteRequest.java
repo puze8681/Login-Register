@@ -17,10 +17,10 @@ public class DeleteRequest extends StringRequest {
     final static private String URL = "http://iwin247.kr:8681/users/delete";
     private Map<String, String> parameters;
 
-    public DeleteRequest(String userID, Response.Listener<String> listener){
+    public DeleteRequest(String user_id, Response.Listener<String> listener){
         super(Request.Method.POST, URL, listener, null);
         parameters = new HashMap<>();
-        parameters.put("userID", userID);
+        parameters.put("user_id", user_id);
     }
 
     @Override

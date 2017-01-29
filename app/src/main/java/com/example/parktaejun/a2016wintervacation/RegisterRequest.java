@@ -15,13 +15,13 @@ public class RegisterRequest extends StringRequest {
     final static private String URL = "http://iwin247.kr:8681/auth/register";
     private Map<String, String> parameters;
 
-    public RegisterRequest(String userID, String userPassword, String userName, int userAge, Response.Listener<String> listener) {
+    public RegisterRequest(String user_id, String user_password, String user_name, int user_age, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
         parameters = new HashMap<>();
-        parameters.put("userID", userID);
-        parameters.put("userPassword", userPassword);
-        parameters.put("userName", userName);
-        parameters.put("userAge", userAge + "");
+        parameters.put("user_id", user_id);
+        parameters.put("user_password", user_password);
+        parameters.put("user_name", user_name);
+        parameters.put("user_age", user_age + "");
     }
 
     @Override
