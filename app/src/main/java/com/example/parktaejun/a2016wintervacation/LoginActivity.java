@@ -1,5 +1,6 @@
 package com.example.parktaejun.a2016wintervacation;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 final String user_id = idText.getText().toString();
                 final String user_password = passwordText.getText().toString();
 
-                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                final Response.Listener<String> responseListener = new Response.Listener<String>(){
 
                     @Override
                     public void onResponse(String response){
@@ -52,12 +53,22 @@ public class LoginActivity extends AppCompatActivity {
                                 String user_password = jsonResponse.getString("user_password");
                                 String user_name = jsonResponse.getString("user_name");
                                 String user_age = jsonResponse.getString("user_age");
-                                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                final Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 mainIntent.putExtra("user_id", user_id);
                                 mainIntent.putExtra("user_password", user_password);
                                 mainIntent.putExtra("user_name", user_name);
                                 mainIntent.putExtra("user_age", user_age);
-                                LoginActivity.this.startActivity(mainIntent);
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                builder.setMessage("로그인에 성공하였습니다.")
+                                        .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                LoginActivity.this.startActivity(mainIntent);
+                                            }
+                                        })
+                                        .create()
+                                        .show();
                             }
 
                             else {
