@@ -13,7 +13,7 @@ var UserSchema = mongoose.Schema({
   user_name: {type: String},
   user_age: {type: Number},
   token: {type: String},
-  success: {type: String}
+  success: {type: String, default: "200"}
 });
 
 Users = mongoose.model("users", UserSchema);

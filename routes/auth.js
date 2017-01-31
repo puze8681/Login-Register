@@ -32,7 +32,7 @@ router.post('/register', function(req, res, next) {
   var user_password = req.body.user_password;
 
   if(user_id === undefined || user_password ===  undefined || user_id === "" || user_password === ""){
-    return res.status(400).send("param missing");
+    return res.status(400).json({success: "500"});
   }
 
   Users.findOne({user_id: user_id, user_password: user_password}, function(err, users){
