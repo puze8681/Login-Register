@@ -32,19 +32,27 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = (Button)findViewById(R.id.loginButton);
 
         final TextView registerButton = (TextView)findViewById(R.id.registerButton);
-
+        Log.d(LOG_TAG,"fuck1");
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(LOG_TAG,"fuck2");
+
                 final String user_id = idText.getText().toString();
+                Log.d(LOG_TAG,"fuck3");
+
                 final String user_password = passwordText.getText().toString();
+                Log.d(LOG_TAG,"fuck4");
+
 
                 final Response.Listener<String> responseListener = new Response.Listener<String>(){
 
                     @Override
                     public void onResponse(String response){
+                        Log.d(LOG_TAG,"fuck5");
 
                         try {
+                            Log.d(LOG_TAG,"fuck6");
                             JSONObject jsonResponse = new JSONObject(response);
                             String success = jsonResponse.getString("success");
                             Log.d(LOG_TAG,success);

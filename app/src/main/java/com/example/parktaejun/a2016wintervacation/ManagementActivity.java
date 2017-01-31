@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManagementActivity extends AppCompatActivity {
+
+    public final static String LOG_TAG = "LOG_TAG";
 
     private ListView listView;
     private UserListAdapter adapter;
@@ -35,10 +38,15 @@ public class ManagementActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         try{
+            Log.d(LOG_TAG,"a");
             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
-            JSONArray jsonArray = jsonObject.getJSONArray("response");
+            Log.d(LOG_TAG,"b");
+            JSONArray jsonArray = jsonObject.getJSONArray("users");
+            Log.d(LOG_TAG,"c");
             int count = 0;
+            Log.d(LOG_TAG,"d");
             String user_id, user_password, user_name, user_age;
+            Log.d(LOG_TAG,"e");
             while(count < jsonArray.length())
             {
                 JSONObject object = jsonArray.getJSONObject(count);
@@ -53,6 +61,8 @@ public class ManagementActivity extends AppCompatActivity {
                 }
                 count++;
             }
+            Log.d(LOG_TAG,"f");
+
         }
         catch (Exception e){
             e.printStackTrace();

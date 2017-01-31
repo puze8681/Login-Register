@@ -73,16 +73,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            Log.d(LOG_TAG,"10");
+            Log.d(LOG_TAG,"15");
             try{
                 Log.d(LOG_TAG,"6");
                 URL url = new URL(target);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                String temp;
-                StringBuilder stringBuilder = new StringBuilder();
                 Log.d(LOG_TAG,"7");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                Log.d(LOG_TAG,"8");
+                InputStream inputStream = httpURLConnection.getInputStream();
+                Log.d(LOG_TAG,"9");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                Log.d(LOG_TAG,"10");
+                String temp;
+                Log.d(LOG_TAG,"11");
+                StringBuilder stringBuilder = new StringBuilder();
+                Log.d(LOG_TAG,"12");
                 while((temp = bufferedReader.readLine()) != null)
                 {
                     stringBuilder.append(temp + "\n");
@@ -90,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
-                Log.d(LOG_TAG,"8");
+                Log.d(LOG_TAG,"13");
                 return stringBuilder.toString().trim();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
-            Log.d(LOG_TAG,"9");
+            Log.d(LOG_TAG,"14");
             return null;
         }
 
