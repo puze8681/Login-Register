@@ -22,7 +22,7 @@ router.post('/register', function(req, res, next) {
   });
 
   new_user.save(function(err, result){
-    if(err) return res.status(500).send("DB err").json({success: "500"});
+    if(err) return res.status(500).json({success: "500"});
     return res.status(200).json({success: "200"});
   });
 })
@@ -36,9 +36,9 @@ router.post('/register', function(req, res, next) {
   }
 
   Users.findOne({user_id: user_id, user_password: user_password}, function(err, users){
-    if(err) return res.status(500).send("DB err").json({success: "500"});
+    if(err) return res.status(500).json({success: "500"});
     if(users)  return res.status(200).json({success: "200", user_id: users.user_id, user_password: users.user_password, user_name: users.user_name, user_age: users.user_age, token: users.token});
-    else return res.status(404).send("id or password not found").json({success: "404"});
+    else return res.status(404).json({success: "404"});
   });
 })
 
@@ -46,9 +46,9 @@ router.post('/register', function(req, res, next) {
   var token = req.body.token;
 
   Users.findOne({token: token}, function(err, users){
-    if(err) return res.status(500).send("DB err").json({success: "500"});
+    if(err) return res.status(500).json({success: "500"});
     if(users)  return res.status(200).json({success: "200", user_name: users.user_name, token: users.token});
-    else return res.status(404).send("token not found").json({success: "404"});
+    else return res.status(404).json({success: "404"});
   });
 })
 
