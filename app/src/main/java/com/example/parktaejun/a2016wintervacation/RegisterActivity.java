@@ -44,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
+                        Log.d(LOG_TAG,"what");
                         try
                         {
                             JSONObject jsonResponse = new JSONObject(response);

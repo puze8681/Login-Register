@@ -17,9 +17,6 @@ import java.util.List;
 
 public class ManagementActivity extends AppCompatActivity {
 
-    public final static String LOG_TAG = "LOG_TAG";
-
-
     private ListView listView;
     private UserListAdapter adapter;
     private List<User> userList;
@@ -38,9 +35,8 @@ public class ManagementActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         try{
-
             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
-            JSONArray jsonArray = jsonObject.getJSONArray("users");
+            JSONArray jsonArray = jsonObject.getJSONArray("response");
             int count = 0;
             String user_id, user_password, user_name, user_age;
             while(count < jsonArray.length())
