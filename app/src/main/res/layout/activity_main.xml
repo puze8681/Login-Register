@@ -9,11 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
-    tools:context="com.example.parktaejun.a2016wintervacation.MainActivity">
+    android:background="@color/white"
+    tools:context="com.example.parktaejun.a2016wintervacation.MainActivity"
+    android:weightSum="1">
 
     <TextView
+        android:layout_marginTop="20dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,10 +26,13 @@
         android:gravity="center"
         android:paddingTop="20dp"
         android:paddingBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
         android:text="ID"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -34,10 +40,14 @@
         android:layout_alignParentEnd="true"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:background="@drawable/edittext_main"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:text="PW"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -45,37 +55,51 @@
         android:layout_alignParentEnd="true"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:background="@drawable/edittext_main"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:text="NAME"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:id="@+id/user_name"
         android:layout_alignParentEnd="true"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:background="@drawable/edittext_main"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:text="AGE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView4"
         android:id="@+id/user_age"
         android:layout_alignParentStart="true"
-        android:paddingBottom="25dp"
+        android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        />
+        android:background="@drawable/edittext_main"
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:text="MANAGE"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/passwordText"
         android:layout_alignParentStart="true"
         android:id="@+id/managementButton"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/button_main"/>
 </LinearLayout>
